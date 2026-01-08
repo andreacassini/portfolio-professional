@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { DEMOS } from '@/lib/projects';
 
 type Project = {
   title: string;
@@ -12,12 +11,12 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { title: 'BoolBnb', description: 'Airbnb-like con Laravel/Vue.js', tech: ['Laravel','Vue.js','MySQL'], github: 'https://github.com/andreacassini/BoolBnb', demo: DEMOS.boolbnb || undefined },
-  { title: 'BoolPetCare', description: 'Gestionale cliniche veterinarie', tech: ['Laravel','PHP','MySQL'], github: 'https://github.com/andreacassini/BoolPetCare', demo: DEMOS.boolpetcare || undefined },
-  { title: 'Dashboard Bootstrap', description: 'Dashboard responsive con grafici', tech: ['HTML','CSS','Bootstrap'], demo: DEMOS.dashboard },
-  { title: 'Spotify Web Clone', description: 'Clone UI Spotify', tech: ['HTML','CSS','JavaScript'], demo: DEMOS.spotify },
-  { title: 'Discord Clone', description: 'Replica interfaccia Discord', tech: ['HTML','CSS'], demo: DEMOS.discord },
-  { title: 'Freelancer Portfolio', description: 'Template portfolio', tech: ['HTML','CSS','Bootstrap'], demo: DEMOS.freelancer },
+  { title: 'BoolBnb', description: 'Airbnb-like con Laravel/Vue.js', tech: ['Laravel','Vue.js','MySQL'], github: 'https://github.com/CraciaDenisStefan/BoolBnb' },
+  { title: 'BoolPetCare', description: 'Gestionale cliniche veterinarie', tech: ['Laravel','PHP','MySQL'], github: 'https://github.com/niccoloruberti/BoolPetCare' },
+  { title: 'Dashboard Bootstrap', description: 'Dashboard responsive con grafici', tech: ['HTML','CSS','Bootstrap'], github: 'https://github.com/andreacassini/html-css-bootstrap-dashboard', demo: 'https://andreacassini.github.io/html-css-bootstrap-dashboard/' },
+  { title: 'Spotify Web Clone', description: 'Clone UI Spotify', tech: ['HTML','CSS','JavaScript'], github: 'https://github.com/andreacassini/html-css-spotifyweb', demo: 'https://andreacassini.github.io/html-css-spotifyweb/' },
+  { title: 'Discord Clone', description: 'Replica interfaccia Discord', tech: ['HTML','CSS'], github: 'https://github.com/andreacassini/htmlcss-discord', demo: 'https://andreacassini.github.io/htmlcss-discord/' },
+  { title: 'Freelancer Portfolio', description: 'Template portfolio', tech: ['HTML','CSS','Bootstrap'], github: 'https://github.com/andreacassini/html-css-bootstrap-freelancer', demo: 'https://andreacassini.github.io/html-css-bootstrap-freelancer/' },
 ];
 
 export default function ProjectsPage() {
@@ -52,10 +51,12 @@ export default function ProjectsPage() {
                 </div>
                 <div className="flex gap-4">
                   {p.github && (
-                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-small">GitHub →</a>
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">
+                      {p.demo ? 'GitHub →' : 'View Code →'}
+                    </a>
                   )}
                   {p.demo && (
-                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-small">Live Demo →</a>
+                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-small">Live Demo →</a>
                   )}
                 </div>
               </motion.div>
