@@ -130,6 +130,7 @@ export default function Home() {
               tags={['Laravel', 'Vue.js', 'MySQL', 'Stripe']}
               delay={0.2}
               github="https://github.com/CraciaDenisStefan/BoolBnb"
+              image="/projects/boolbnb.svg"
             />
             <FeaturedProject
               title="BoolPetCare"
@@ -137,6 +138,7 @@ export default function Home() {
               tags={['Laravel', 'PHP', 'MySQL', 'Bootstrap']}
               delay={0.3}
               github="https://github.com/niccoloruberti/BoolPetCare"
+              image="/projects/boolpetcare.svg"
             />
             <FeaturedProject
               title="Spotify Web Clone"
@@ -166,7 +168,7 @@ export default function Home() {
   );
 }
 
-function FeaturedProject({ title, description, tags, delay, github, demo }: { title: string; description: string; tags: string[]; delay: number; github?: string; demo?: string }) {
+function FeaturedProject({ title, description, tags, delay, github, demo, image }: { title: string; description: string; tags: string[]; delay: number; github?: string; demo?: string; image?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -175,6 +177,11 @@ function FeaturedProject({ title, description, tags, delay, github, demo }: { ti
       viewport={{ once: true }}
       className="group relative p-8 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-primary)] hover:border-[var(--accent-primary)] transition-all duration-300"
     >
+      {image && (
+        <div className="mb-6 -mt-2 rounded-xl overflow-hidden border border-[var(--border-primary)] bg-[var(--bg-tertiary)] aspect-[16/9]">
+          <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+        </div>
+      )}
       <h3 className="text-2xl font-semibold mb-3 group-hover:text-[var(--accent-primary)] transition-colors">
         {title}
       </h3>
