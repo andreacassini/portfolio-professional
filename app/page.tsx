@@ -138,6 +138,14 @@ export default function Home() {
               delay={0.3}
               github="https://github.com/niccoloruberti/BoolPetCare"
             />
+            <FeaturedProject
+              title="Spotify Web Clone"
+              description="Interfaccia ispirata a Spotify, responsive e ottimizzata."
+              tags={['HTML', 'CSS', 'JavaScript']}
+              delay={0.4}
+              github="https://github.com/andreacassini/html-css-spotifyweb"
+              demo="https://andreacassini.github.io/html-css-spotifyweb/"
+            />
           </div>
 
           <motion.div
