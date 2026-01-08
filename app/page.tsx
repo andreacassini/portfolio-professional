@@ -129,12 +129,14 @@ export default function Home() {
               description="Piattaforma di prenotazione appartamenti con sistema di pagamento integrato, gestione recensioni e dashboard amministratore."
               tags={['Laravel', 'Vue.js', 'MySQL', 'Stripe']}
               delay={0.2}
+              github="https://github.com/CraciaDenisStefan/BoolBnb"
             />
             <FeaturedProject
               title="BoolPetCare"
               description="Sistema gestionale per cliniche veterinarie con booking appuntamenti, cartelle cliniche digitali e gestione pazienti."
               tags={['Laravel', 'PHP', 'MySQL', 'Bootstrap']}
               delay={0.3}
+              github="https://github.com/niccoloruberti/BoolPetCare"
             />
           </div>
 
@@ -156,7 +158,7 @@ export default function Home() {
   );
 }
 
-function FeaturedProject({ title, description, tags, delay }: { title: string; description: string; tags: string[]; delay: number }) {
+function FeaturedProject({ title, description, tags, delay, github, demo }: { title: string; description: string; tags: string[]; delay: number; github?: string; demo?: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -181,6 +183,31 @@ function FeaturedProject({ title, description, tags, delay }: { title: string; d
           </span>
         ))}
       </div>
+
+      {(github || demo) && (
+        <div className="mt-6 flex gap-3">
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary btn-small"
+            >
+              {demo ? 'GitHub →' : 'View Code →'}
+            </a>
+          )}
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-small"
+            >
+              Live Demo →
+            </a>
+          )}
+        </div>
+      )}
 
       <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity">
         <ArrowRight className="w-6 h-6 text-[var(--accent-primary)]" />
